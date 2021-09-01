@@ -32,6 +32,7 @@ ClassMethod ExportToExcelInternal(pFile, pMDX, pFilterNames, pFilterValues) As %
     Set tParms("MDX")=pMDX
     Set tParms("FILTERNAMES")=pFilterNames
     Set tParms("FILTERVALUES")=pFilterValues
+    Set tParms("SHOWDATE")=1
     Set tSC=##class(%DeepSee.Utils).%ExportExcelToFile(pFile,.tParms)
 
     Quit tSC
