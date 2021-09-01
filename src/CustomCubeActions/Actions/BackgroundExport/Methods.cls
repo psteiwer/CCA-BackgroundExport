@@ -5,15 +5,15 @@ ClassMethod ExportToExcel(pAction, ByRef pContext) As %Status
 {
     Set tSC=$$$OK
 
-    set filters=pContext.filters
-    set tFilterNames=""
-    set tFilterValues=""
-    set filter=$O(filters.%data(""))
-    while filter'="" {
+    Set tFilters=pContext.filters
+    Set tFilterNames=""
+    Set tFilterValues=""
+    Set tFilter=$O(tFilters.%data(""))
+    While tFilter'="" {
         // TODO: Transform spec and key into display values
-        set tFilterNames=tFilterNames_$select(tFilterNames'="":$C(10),1:"")_filter
-        set tFilterValues=tFilterValues_$select(tFilterValues'="":$C(10),1:"")_filters.%data(filter)
-        set filter=$O(filters.%data(filter))
+        Set tFilterNames=tFilterNames_$select(tFilterNames'="":$C(10),1:"")_tFilter
+        Set tFilterValues=tFilterValues_$select(tFilterValues'="":$C(10),1:"")_tFilters.%data(tFilter)
+        Set tFilter=$O(tFilters.%data(tFilter))
     }
 
     Set tFile=pContext.cubeName_$h_".xls"
@@ -42,15 +42,15 @@ ClassMethod ExportToPDF(pAction, ByRef pContext) As %Status
 {
     Set tSC=$$$OK
 
-    set filters=pContext.filters
-    set tFilterNames=""
-    set tFilterValues=""
-    set filter=$O(filters.%data(""))
-    while filter'="" {
+    Set tFilters=pContext.filters
+    Set tFilterNames=""
+    Set tFilterValues=""
+    Set tFilter=$O(tFilters.%data(""))
+    While tFilter'="" {
         // TODO: Transform spec and key into display values
-        set tFilterNames=tFilterNames_$select(tFilterNames'="":$C(10),1:"")_filter
-        set tFilterValues=tFilterValues_$select(tFilterValues'="":$C(10),1:"")_filters.%data(filter)
-        set filter=$O(filters.%data(filter))
+        Set tFilterNames=tFilterNames_$select(tFilterNames'="":$C(10),1:"")_tFilter
+        Set tFilterValues=tFilterValues_$select(tFilterValues'="":$C(10),1:"")_tFilters.%data(tFilter)
+        Set tFilter=$O(tFilters.%data(tFilter))
     }
 
     Set tFile=pContext.cubeName_$h_".pdf"

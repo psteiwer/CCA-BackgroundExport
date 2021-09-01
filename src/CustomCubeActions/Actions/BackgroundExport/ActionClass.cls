@@ -13,7 +13,7 @@ xmlns="http://www.intersystems.com/deepsee/kpi"
 
 ClassMethod %OnDashboardAction(pAction As %String, pContext As %ZEN.proxyObject) As %Status
 {
-	Set tSC=$$$OK
+    Set tSC=$$$OK
 
     If pAction="ExportToExcel" {
         Set tSC=##class(CustomCubeActions.Actions.BackgroundExport.Methods).ExportToExcel(pAction,.pContext)
@@ -21,7 +21,7 @@ ClassMethod %OnDashboardAction(pAction As %String, pContext As %ZEN.proxyObject)
         Set tSC=##class(CustomCubeActions.Actions.BackgroundExport.Methods).ExportToPDF(pAction,.pContext)
     }
 
-	Quit tSC
+    Quit tSC
 }
 
 }
